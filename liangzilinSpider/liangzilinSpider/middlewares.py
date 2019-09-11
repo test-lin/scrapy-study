@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Define here the models for your spider middleware
+# 在这定义你的爬虫中间件模型
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html

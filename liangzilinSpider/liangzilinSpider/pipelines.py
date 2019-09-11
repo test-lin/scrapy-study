@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Define your item pipelines here
+# 在这定义项目管道
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
