@@ -7,7 +7,7 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+from tools.get_proxy_ip import GetProxyIp
 
 class LiangzilinspiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -102,3 +102,9 @@ class LiangzilinspiderDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+class RandomProxyMiddleware(object):
+    def process_request(self, request, spider):
+        get_ip = GetProxyIp()
+        proxy_uri = get_ip.get_one_ip()
+        request.meta["proxy"] = proxy_uri
