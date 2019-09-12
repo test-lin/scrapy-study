@@ -65,9 +65,10 @@ ROBOTSTXT_OBEY = True
 # Enable or disable downloader middlewares
 # 启用或禁用下载中间件
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES = {
+   'liangzilinSpider.middlewares.RandomProxyMiddleware': 100,
 #    'liangzilinSpider.middlewares.LiangzilinspiderDownloaderMiddleware': 543,
-#}
+}
 
 # Enable or disable extensions
 # 启用或禁用扩展

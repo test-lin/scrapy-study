@@ -6,8 +6,8 @@ import os
 
 class LiangzilinSpider(scrapy.Spider):
     name = 'liangzilin'
-    allowed_domains = ['www.demo.me']
-    start_urls = ['http://www.demo.me/']
+    allowed_domains = ['liangzilin.club']
+    start_urls = ['https://liangzilin.club/']
 
     def parse(self, response):
         list = response.xpath('//*[@id="posts"]/article')
