@@ -8,6 +8,7 @@
 
 from scrapy import signals
 from tools.get_proxy_ip import GetProxyIp
+from fake_useragent import UserAgent
 
 class LiangzilinspiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -108,3 +109,9 @@ class RandomProxyMiddleware(object):
         get_ip = GetProxyIp()
         proxy_uri = get_ip.get_one_ip()
         request.meta["proxy"] = proxy_uri
+
+class RandomUserAgentMiddleware(object):
+    def process_request(self, request, spider):
+        ua = getattr(UserAgent(), 'random')
+
+        request.headers.setdefault('User-Agent', ua)

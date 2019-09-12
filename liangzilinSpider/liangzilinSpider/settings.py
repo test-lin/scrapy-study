@@ -24,7 +24,7 @@ NEWSPIDER_MODULE = 'liangzilinSpider.spiders'
 
 # Obey robots.txt rules
 # 服从 robots.txt 规则
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # 配置scrapy执行的最大并发请求数（默认值：16）
@@ -67,6 +67,7 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'liangzilinSpider.middlewares.RandomProxyMiddleware': 100,
+   'liangzilinSpider.middlewares.RandomUserAgentMiddleware': 100,
 #    'liangzilinSpider.middlewares.LiangzilinspiderDownloaderMiddleware': 543,
 }
 

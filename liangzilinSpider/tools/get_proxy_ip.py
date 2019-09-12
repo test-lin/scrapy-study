@@ -6,7 +6,7 @@ class GetProxyIp(object):
         验证代理是否可用
         """
         http_url = "https://www.baidu.com"
-        proxy_url = "http://{0}:{1}".format(url, port)
+        proxy_url = "https://{0}:{1}".format(url, port)
     
         try:
             response = requests.get(http_url, proxies={"http": proxy_url})
@@ -26,13 +26,13 @@ class GetProxyIp(object):
         """
         取一个IP地址
         """
-        url = "http://127.0.0.1:8111/proxy"
+        url = "http://127.0.0.1:8111/proxy?protocol=https"
         response = requests.get(url).json()
         proxy_url = response[0][0]
         proxy_port = response[0][1]
 
         if self.check_proxy(proxy_url, proxy_port):
-            return "http://{0}:{1}".format(proxy_url, proxy_port)
+            return "https://{0}:{1}".format(proxy_url, proxy_port)
 
 if __name__ == '__main__':
     get_ip = GetProxyIp()
