@@ -17,9 +17,9 @@ class LiangzilinSpider(scrapy.Spider):
             yield scrapy.Request(url=response.urljoin(link), callback=self.parseItem, meta={"title": title})
 
         # 下一页
-        next_link = response.xpath('//*[@id="content"]/nav/a[@class="extend next"]/@href').get()
-        if next_link:
-            yield scrapy.Request(url=response.urljoin(next_link))
+        next_page = response.xpath('//*[@id="content"]/nav/a[@class="extend next"]/@href').get()
+        if next_page is not None:
+            yield scrapy.Request(url=response.urljoin(next_page))
 
     def parseItem(self, response):
         time = response.xpath('//span[@class="post-time"]/time/text()').get().strip()
